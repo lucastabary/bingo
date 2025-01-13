@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BINGO !!!!!</title>
+    <style>
+        .green {
+            background-color: green;
+        }
+
+        table, th, td {
+            border: 1px solid;
+        }
+
+        table {
+            width: 60vh;
+            height: 60vh;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        .center {
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Le super bingo !!!!</h1>
+    <p>Je voulais écrire les règles ici mais vous les connaissez</p>
+    <table class="center" id="table">
+
+    </table>
+
+    <script>
+        let phrases = [
+            "Visite Haribo",
+            "Marriage de deux élèves de TN",
+            "Avec moi je suis carré carré",
+            "Michelle",
+            "Je suis Maman",
+            "Le mercredi",
+            "J'emploie 9 personnes",
+            "Les élèves entreprenneur",
+            "Evenement culturel de Nancy",
+            "Secret défense",
+            "J'adore Amazon",
+            "Complément de cours",
+            "Joker",
+            "Prof c'est pas pour les sous",
+            "Moi, j'attaque",
+            "Berger en Irlande",
+            "Je suis pas actionnaire",
+            "Soyez humble, je suis humble",
+            "Je connais le milieu",
+            "J'ai un élève qui gagne plus que moi",
+            "Ce week-end j'ai visité une entreprise",
+            "Je suis pas carrièriste",
+            "J'ai travaillé chez Hewlett-Packard",
+            "Prenez des plaids",
+            "Parenthèse",
+            "Magnifique lieu de stage",
+            "Il faut mettre son casque",
+            "Pas de photo du cours",
+            "Renault",
+            "Vous en faites pas pour moi",
+            "*met son armure*",
+            "Notre cher Rémi",
+            "Soprasteria",
+            "Messieurs Dames",
+            "Certains non pas validé leur MOOC",
+            "Coder au TN'event",
+            "Nous on avait la bourse 3 fosi par jour",
+            "Je me suis fait braqué",
+            "Moi je",
+            "J'appelle Olivier",
+            "M. Badonnel",
+            "Je suis nulle avec la technologie",
+            "J'ai été caissière",
+            "J'adore Christophe (Bouthier) ",
+            "Il faut toucher les enfants"
+
+        ];
+        
+        const size = 4;
+        const table = document.getElementById("table");
+        const shuffle = (array) => { 
+            for (let i = array.length - 1; i > 0; i--) { 
+            const j = Math.floor(Math.random() * (i + 1)); 
+            [array[i], array[j]] = [array[j], array[i]]; 
+            } 
+            return array; 
+        };
+
+        phrases = shuffle(phrases);
+
+        
+        let c = 0;
+        for (let i = 0; i < size; i++) {
+            let row = table.insertRow(0);
+            for (let j = 0; j < size; j++) {
+                elem = row.insertCell(0);
+                elem.onclick = function() {this.classList.toggle("green");};
+                elem.innerText = phrases[c];
+                c++;
+            }
+        }
+    </script>
+</body>
+</html>
